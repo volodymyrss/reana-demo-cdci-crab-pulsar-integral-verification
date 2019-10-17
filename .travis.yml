@@ -1,0 +1,24 @@
+notifications:
+  email: false
+
+sudo: true
+
+language: python
+
+cache:
+  - pip
+
+python:
+  - 2.7
+  - 3.6
+  - 3.7
+
+services:
+  - docker
+
+before_install:
+  - travis_retry pip install reana-client cwltool
+
+script:
+  - reana-client validate | grep -q ' is a valid '
+  - cwltool --validate workflow/cwl/*  | grep 'is valid'
