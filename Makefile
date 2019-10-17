@@ -5,5 +5,5 @@ run:
 	reana-client   -lDEBUG   start --workflow $(name)
 
 validate:
-	reana-client validate | grep 'is a valid'
+	reana-client -lDEBUG validate | grep 'is a valid'
 	cwltool --validate workflow/cwl/*  | grep 'is valid'
