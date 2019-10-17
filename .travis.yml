@@ -19,5 +19,4 @@ before_install:
   - travis_retry pip install reana-client cwltool
 
 script:
-  - reana-client validate 
-  - cwltool --validate workflow/cwl/*  | grep 'is valid'
+  - make validate

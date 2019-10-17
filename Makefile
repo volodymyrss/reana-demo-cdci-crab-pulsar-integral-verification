@@ -4,3 +4,6 @@ run:
 	reana-client   -lDEBUG   create  -f reana.yaml --name $(name)
 	reana-client   -lDEBUG   start --workflow $(name)
 
+validate:
+	reana-client validate | grep 'is a valid'
+	cwltool --validate workflow/cwl/*  | grep 'is valid'
