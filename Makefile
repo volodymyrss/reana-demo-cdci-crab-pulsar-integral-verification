@@ -1,7 +1,7 @@
-name?="wfl$(shell echo $RANDOM$(ps)$(date +%s) | md5sum | cut -c1-8)"
+name?="crab"
 
 
-IMAGE=cdci/crab-integral-verification:$(shell git describe --always --tags --dirty)
+IMAGE=cdci/crab-integral-verification:$(shell git describe --always --tags)
 
 build:
 	docker build code -t $(IMAGE)

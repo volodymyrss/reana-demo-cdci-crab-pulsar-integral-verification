@@ -8,6 +8,6 @@ RUN mkdir -pv /home/oda; export HOME_OVERRRIDE=/home/oda; source /init.sh;  \
 ADD ./ /repo
 RUN useradd -ms /bin/bash oda; chown oda:oda /repo
 
-USER oda
+#USER oda
 WORKDIR /workdir
 
