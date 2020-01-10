@@ -52,4 +52,4 @@ outputs:
   type: string
 requirements:
   DockerRequirement:
-    dockerPull: cdci/crab-integral-verification:82a7edb
+    dockerPull: cdci/crab-integral-verification:238ee85
