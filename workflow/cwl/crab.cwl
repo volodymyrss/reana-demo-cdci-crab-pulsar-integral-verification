@@ -35,21 +35,27 @@ inputs:
     separate: false
   type: float
 outputs:
-- doc: lines found with the pattern
+- doc: summary of the verification, contains status
   id: summary
   type: string
-- doc: lines found with the pattern
+- doc: all results of model fitting
   id: fit_results
   type: string
-- doc: lines found with the pattern
+- doc: fit results grouped by software version
   id: crab_by_osa
   type: string
-- doc: lines found with the pattern
+- doc: acceptable fit folded model
   id: good_fit_png
   type: string
-- doc: lines found with the pattern
+- doc: acceptable fit folded model png b64
+  id: good_fit_png_content
+  type: string
+- doc: the best tested unacceptable fit folded model
   id: next_good_fit_png
+  type: string
+- doc: the best tested unacceptable fit folded model png b64
+  id: next_good_fit_png_content
   type: string
 requirements:
   DockerRequirement:
-    dockerPull: cdci/crab-integral-verification:238ee85
+    dockerPull: cdci/crab-integral-verification:latest
