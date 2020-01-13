@@ -21,5 +21,13 @@ before_install:
   - travis_retry pip install git+git://github.com/reanahub/reana-client.git@master#egg=reana-client
 
 
-script:
-  - make validate
+jobs:
+    include:
+    - stage: "Validate CWL"
+      script:
+      - make validate
+
+    - stage: "Build docker image"
+      script:
+      - make build 
+      - make push
