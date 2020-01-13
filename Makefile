@@ -1,13 +1,15 @@
 name?="crab"
 
-
-IMAGE=cdci/crab-integral-verification:$(shell git describe --always --tags)
+IMAGE_BASENAME=cdci/crab-integral-verification
+IMAGE=$(IMAGE_BASENAME):$(shell git describe --always --tags)
 
 build:
 	docker build code -t $(IMAGE)
+	docker tag $(IMAGE) $(IMAGE_BASENAME):latest
 
 push: build
 	docker push $(IMAGE)
+	docker push $(IMAGE_BASENAME):latest
 
 run:
 	reana-client   -lDEBUG   create  -f reana.yaml --name $(name)
